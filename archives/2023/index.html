@@ -56,7 +56,7 @@
 					scale: 0.9
 				},
 			
-			pangu: "false",
+			pangu: "true",
 			
 				lazyload: {
 					threshold: 800,
@@ -144,7 +144,7 @@
 
 	
 		
-<script src="/assets/vendor/smoothscroll/smoothscroll1.js"></script>
+<script src="/assets/vendor/smoothscroll/smoothscroll2.js"></script>
 
 	
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -264,7 +264,7 @@
 </div>
 <!--Banner-->
 <section id="banner" class="banner section section-lg section-shaped">
-	<div class="shape  shape-default">
+	<div class="shape shape-style-1 shape-dark">
 		<span></span>
 		<span></span>
 		<span></span>
@@ -279,7 +279,7 @@
 	
 	<div id="banner_container" class="banner-container container text-center">
 		
-			<div class="banner-title text-white" data-text="Godzilla" data-interval=""><span class="banner-title-inner">&nbsp;</span>
+			<div class="banner-title text-white"><span class="banner-title-inner">Godzilla</span>
 		
 		</div>
 	</div>
@@ -301,7 +301,7 @@
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
-			opacity: 1;
+			opacity: 0.7;
 			transition: opacity .5s ease;
 		}
 		html.darkmode #content:before{
@@ -316,6 +316,23 @@
 	</style>
 
 
+
+	<style>
+		#banner:after {
+			content: '';
+			width: 100vw;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 120px;
+			background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0) 100%);
+			display: block;
+			z-index: -1;
+		}
+		.banner-title {
+			text-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+		}
+	</style>
 
 
 <div id="float_action_buttons" class="float-action-buttons fabtns-unloaded">
@@ -422,7 +439,7 @@
 			
 			
 				<ul id='leftbar_part1_menu' class='leftbar-menu'>
-					<li class='leftbar-menu-item'><a href='/'>首页</a></li><li class='leftbar-menu-item'><a href='/archives'>归档</a></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>二级菜单</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>三级菜单</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/'>首页</a></li></ul></li></ul></li>
+					<li class='leftbar-menu-item'><a href='/'>首页</a></li><li class='leftbar-menu-item'><a href='/archives'>归档</a></li>
 				</ul>
 			
 			<div class="card-body text-center leftbar-search-button">
@@ -549,7 +566,7 @@
 		
 		
 				
-	<article class="post card bg-white shadow-sm border-0 ">
+	<article class="post card bg-white shadow-sm border-0 post-preview">
 	<header class="post-header text-center">
 		
 		<a class="post-title" href="/2023/02/18/test/">test</a>
@@ -605,7 +622,7 @@
 </article>
 
 
-	<article class="post card bg-white shadow-sm border-0 ">
+	<article class="post card bg-white shadow-sm border-0 post-preview">
 	<header class="post-header text-center">
 		
 		<a class="post-title" href="/2023/02/18/hello-world/">Hello World</a>
@@ -704,6 +721,13 @@
 		
 		
 		
+
+		
+			<script>
+				var argonEnableCodeHighlight = true;
+			</script>
+			
+<link rel="stylesheet" href="/assets/vendor/highlight/styles/vs2015.css">
 
 		
 
