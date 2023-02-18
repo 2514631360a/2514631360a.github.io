@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="use-serif article-header-style-default">
+<html class="article-header-style-default">
 <head>
 	
 	<title>test - Godzilla</title>
@@ -268,7 +268,7 @@
 </div>
 <!--Banner-->
 <section id="banner" class="banner section section-lg section-shaped">
-	<div class="shape shape-style-1 shape-primary">
+	<div class="shape  shape-default">
 		<span></span>
 		<span></span>
 		<span></span>
@@ -283,16 +283,10 @@
 	
 	<div id="banner_container" class="banner-container container text-center">
 		
-			<div class="banner-title text-white" data-text="dfdfdfd" data-interval=""><span class="banner-title-inner">&nbsp;</span>
+			<div class="banner-title text-white" data-text="Godzilla" data-interval=""><span class="banner-title-inner">&nbsp;</span>
 		
-		<span class="banner-subtitle d-block">asdasasdasd</span></div>
+		</div>
 	</div>
-	
-		<style>
-			section.banner{
-				background-image: url(/assets/img/banner.jpg) !important;
-			}
-		</style>
 	
 </section>
 
@@ -317,29 +311,6 @@
 		html.darkmode #content:before{
 			filter: brightness(0.65);
 		}
-		
-			#content:after {
-				content: '';
-				display: block;
-				position: fixed;
-				left: 0;
-				right: 0;
-				top: 0;
-				bottom: 0;
-				z-index: -2;
-				background: url(/assets/img/banner.jpg);
-				background-position: center;
-				background-size: cover;
-				background-repeat: no-repeat;
-				opacity: 0;
-				transition: opacity .5s ease;
-			}
-			html.darkmode #content:after {
-				opacity: 1;
-			}
-			html.darkmode #content:before {
-				opacity: 0;
-			}
 		
 		
 			#banner, #banner .shape {
@@ -779,6 +750,26 @@
 		
 <script src="/argontheme.js"></script>
 
+		
+			<script>
+				window.MathJax = {
+					tex: {
+						inlineMath: [["$", "$"], ["\\\\(", "\\\\)"]],
+						displayMath: [['$$','$$']],
+						processEscapes: true,
+						packages: {'[+]': ['noerrors']}
+					},
+					options: {
+						skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+						ignoreHtmlClass: 'tex2jax_ignore',
+						processHtmlClass: 'tex2jax_process'
+					},
+					loader: {
+						load: ['[tex]/noerrors']
+					}
+				};
+			</script>
+			<script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" id="MathJax-script" async></script>
 		
 		
 		
