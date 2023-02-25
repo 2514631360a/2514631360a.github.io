@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>P3514</title>
+      <link href="/2023/02/25/P3514/"/>
+      <url>/2023/02/25/P3514/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P3514">题目传送门</a></p><p>这是一个稍微复杂一点且较容易想到的做法。</p><p>考虑 <strong>特殊到一般</strong>，我们固定一个右端点 $l$，枚举左端点 $r$，将 $[l,r]$ 算入答案。这样显然会漏掉一些答案，发现必然是进行 $+2$ 时跳过了一个数，考虑如何得到这个数。</p><p>发现如果 $a_l&#x3D;1$，我们将 $l\leftarrow l+1$，则枚举左端点 $r$ 得到的数恰好对于上一次计算的数 $-1$，可以补上。那么我们找到第一个出现 $1$ 的位置也就是现在我们得到了 $[1,s_{l,n}]$ 的答案，其中 $s_{l,r}$ 表示 $\sum\limits_{i&#x3D;l}^{r}a_i$ 。</p><p>考虑还要将 $[1,l-1]$ 的 $2$ 算入答案，这个我们在以 $l$ 为左端点时对计算的和 $s_{l,r}$ 记录数组 $b_{s_{l,r}}$ $l$ 前面可以拓展多少个 $2$，对于每个 $i$ 存在答案且 $b_i&gt;0$，都可以计算出 $i+2$ 的答案，从小到大递推即可，具体见代码。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> START;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e6</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, q, a[N], b[N];</span><br><span class="line">pr ans[N];</span><br><span class="line"><span class="type">char</span> s[N];</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> END;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">cl</span><span class="params">(<span class="type">int</span> l, <span class="type">bool</span> fl)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (fl) b[<span class="number">0</span>] = l - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = l, sm = <span class="number">0</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    sm += a[i], ans[sm] = <span class="built_in">mk</span>(l, i);</span><br><span class="line">    <span class="keyword">if</span> (fl) b[sm] = l - <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">cl2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">2</span> * n; ++i)</span><br><span class="line">    <span class="keyword">if</span> (ans[i] != <span class="built_in">mk</span>(<span class="number">0</span>, <span class="number">0</span>) &amp;&amp; b[i] &gt; <span class="number">0</span> &amp;&amp; (ans[i + <span class="number">2</span>] == <span class="built_in">mk</span>(<span class="number">0</span>, <span class="number">0</span>) || b[i + <span class="number">2</span>] &lt; b[i] - <span class="number">1</span>))</span><br><span class="line">      b[i + <span class="number">2</span>] = b[i] - <span class="number">1</span>, ans[i + <span class="number">2</span>] = ans[i], ans[i + <span class="number">2</span>].fi--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">IN</span>(n), <span class="built_in">IN</span>(q), <span class="built_in">scanf</span>(<span class="string">&quot; %s&quot;</span>, s + <span class="number">1</span>); <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) a[i] = (s[i] == <span class="string">&#x27;T&#x27;</span>) ? <span class="number">2</span> : <span class="number">1</span>;</span><br><span class="line">  <span class="type">int</span> p = n + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="keyword">if</span> (a[i] == <span class="number">1</span>) &#123;p = i; <span class="keyword">break</span>;&#125;</span><br><span class="line">  <span class="built_in">cl</span>(p + <span class="number">1</span>, <span class="number">0</span>), <span class="built_in">cl</span>(p, <span class="number">1</span>),  ans[<span class="number">0</span>] = <span class="built_in">mk</span>(p, p - <span class="number">1</span>), <span class="built_in">cl2</span>();</span><br><span class="line">  <span class="keyword">while</span> (q--) &#123;</span><br><span class="line">    <span class="type">int</span> x; <span class="built_in">IN</span>(x);</span><br><span class="line">    <span class="keyword">if</span> (ans[x] == <span class="built_in">mk</span>(<span class="number">0</span>, <span class="number">0</span>)) <span class="built_in">puts</span>(<span class="string">&quot;NIE&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span> cout &lt;&lt; ans[x].fi &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; ans[x].se &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> OI </category>
+          
+          <category> sol </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OI </tag>
+            
+            <tag> sol </tag>
+            
+            <tag> POI </tag>
+            
+            <tag> constructive algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>bulma</title>
       <link href="/2023/02/19/bulma/"/>
       <url>/2023/02/19/bulma/</url>
