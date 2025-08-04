@@ -13,19 +13,19 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Tagaki&#39;s blog">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Tagaki&#39;s blog">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Tagaki san">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/">
@@ -41,7 +41,7 @@
   };
 </script>
 
-  <title>Hexo</title>
+  <title>Tagaki's blog</title>
   
 
 
@@ -92,13 +92,14 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">Tagaki's blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -110,29 +111,56 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-folder-open fa-fw"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -142,6 +170,9 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/2514631360a/2514631360a.github.io" class="github-corner" title="NightTeam GitHub" aria-label="NightTeam GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
     <main class="main">
@@ -158,13 +189,13 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/08/01/solution/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="image" content="https://github.com/2514631360a/img-repo/blob/main/mmexport1746952483694.jpg?raw=true">
+      <meta itemprop="name" content="Tagaki san">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Tagaki's blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -196,20 +227,14 @@
       
           <p>先假设这个过程在树上进行。</p>
 <p>考虑暴力，模拟这个过程，对一条边选择哪个点移动进行决策。发现一定是移动剩余距离最大的点，因为如果移动距离较小的点，调整一定不劣。</p>
-<p>但是模拟这个过程无法优化，没有前途。调整思路，不关注时间，而关注每条边，答案显然等于所有边最后经过时间的最大值，如果能计算出每个点 $i$ 到 $x$ 的时间，那么 $(x,p_x)$ 最后经过时间可以通过上述贪心求出。因为每次移动剩余距离最大的点，我们只需要关心所有经过 $(x,p_x)$ 的路径的出发点 $a_i$。</p>
-<p>考察特殊情况，如果只有 $1$ 条路径，那么显然到达 $x$ 的时间为 $d_{a_i}-d_{x}$，其中 $d_i$ 表示 $i$ 点的深度。</p>
-<p>拓展到一般情况，发现会出现某个时刻，两个点在同一位置，造成堵塞的情况。这种情况不好考虑，不妨猜测不用考虑这种情况，直接另 $a_i$ 到 $x$ 的时间为 $d_{a_i}-d_{x}$ 而不影响答案。证明考虑如果 $u,v$ 两点 $t$ 时刻在 $z$ 点堵塞了，那么到达 $p_z$ 的时刻应为 $t+1,t+2$，但是观察到我们可以将堵塞时间延后，将 $(z,p_z)$ 边扩容，到达 $p_z$ 时刻变为 $t+1,t+1$，但是他们在 $p_z$ 仍会堵塞，那么得到一个结论：将 $(x,p_x)$ 子树内的边扩容为 $+\infty$，不影响 $(x,p_x)$ 答案的计算。</p>
-<p>如果得到到达 $x$ 的时间集合 $T$，考虑如何计算 $(x,p_x)$ 的贡献。显然最后经过时刻具有单调性，考虑二分时间 $t$，判断能否再 $\le t$ 时间走完这条边。</p>
-<p>考虑 hall 定理，相当于每个时刻 $t_i$ 可以连边 $(t_i,t]$，判断是否存在完美匹配。为了方便，平移一格匹配，也就是 $t_i$ 可以连边 $[t_i,t]$，将求出的时刻 $t$ 加一即可。只需要考虑所有后缀 $(i,t]$，是否都满足 $|N(S)|\ge |S|$，即 $t-i\ge s_{t}-s_{i}$，其中 $s_i$ 表示时刻小于等于 $i$ 的点的个数，条件等价于 $t-s_{t}\ge i-s_{i}$。</p>
-<p>这个信息可以通过线段树合并维护区间 $\max{i-s_i}$，线段树上二分查询得到。</p>
-<p>拓展到基环树上，考虑断环为链，就可以考虑到所有经过环上的路径了，注意到复制的环上的点会正确地考虑到所有信息。</p>
-<p>注意到二分的位置需要包含所有子树中目前存在时刻，我先维护区间时刻出现次数和，求出但前最大时刻 $pos$，在 $[pos,+\infty]$ 上二分。</p>
-<p>线段树合并需要进行区间修改，为了减少空间，我使用了标记永久化。</p>
-<p>事实上观察到 $s_t$ 为定值，那么相当于 $i\ge j+s_{i}-s_{j}$，可以转化为单点修改，答案也是容易合并的。</p>
-<p>代码写得很复杂，建议参考其他的题解。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> file_in(x) (freopen(#x<span class="string">&quot;.in&quot;</span>, <span class="string">&quot;r&quot;</span>, stdin))</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> file_out(x) (freopen(#x<span class="string">&quot;.out&quot;</span>, <span class="string">&quot;w&quot;</span>, stdout))</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> vi vector</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> pr pair <span class="string">&lt;int, int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> mk make_pair</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> pb push_back</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> START;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">4e5</span> + <span class="number">5</span>, M = <span class="number">100</span>, inf = <span class="number">1e9</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m, p[N], a[N], b[N];</span><br><span class="line"><span class="type">int</span> stk[N], tot, vis[N];</span><br><span class="line"><span class="type">int</span> d[N], idx, dy[N];</span><br><span class="line"><span class="type">int</span> dfn[N], sz[N], tp[N], dep[N], mxd[N], cnt;</span><br><span class="line"><span class="type">int</span> v[N];</span><br><span class="line"><span class="type">int</span> fr[N], o;</span><br><span class="line"><span class="type">int</span> lim;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> rt[N], mx[N * M], ex[N * M], tag[N * M], ls[N * M], rs[N * M], num;</span><br><span class="line"><span class="type">int</span> ans;</span><br><span class="line"></span><br><span class="line">vi &lt;<span class="type">int</span>&gt; G[N], q, id[N];</span><br><span class="line">vi &lt;pr&gt; vc[N];</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> END;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add_e</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;G[x].<span class="built_in">pb</span>(y);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (v[x]) &#123;</span><br><span class="line">    <span class="type">bool</span> fl = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= tot; ++i) &#123;</span><br><span class="line">      <span class="keyword">if</span> (stk[i] == x) fl = <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (fl) d[++idx] = stk[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  stk[++tot] = x, v[x] = <span class="number">1</span>, <span class="built_in">dfs</span>(p[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs2</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> TP)</span> </span>&#123;</span><br><span class="line">  dfn[x] = ++cnt, sz[x] = <span class="number">1</span>, tp[x] = TP, fr[x] = o, q.<span class="built_in">pb</span>(x);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> y : G[x]) <span class="keyword">if</span> (!vis[y]) dep[y] = dep[x] + <span class="number">1</span>, <span class="built_in">dfs2</span>(y, TP), sz[x] += sz[y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">psu</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  mx[x] = <span class="built_in">max</span>(ls[x] ? mx[ls[x]] : mid, rs[x] ? mx[rs[x]] : r) + tag[x];</span><br><span class="line">  ex[x] = ex[ls[x]] + ex[rs[x]];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> p)</span> </span>&#123;tag[p] -= k, mx[p] -= k;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">nnd</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num++, mx[num] = r, ls[num] = rs[num] = ex[num] = tag[num] = <span class="number">0</span>, num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">mrg</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!x || !y) <span class="keyword">return</span> x | y;</span><br><span class="line">  tag[x] += tag[y];</span><br><span class="line">  <span class="keyword">if</span> (l == r)</span><br><span class="line">    <span class="keyword">return</span> mx[x] = r + tag[x], ex[x] += ex[y], x;</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  ls[x] = <span class="built_in">mrg</span>(l, mid, ls[x], ls[y]);</span><br><span class="line">  rs[x] = <span class="built_in">mrg</span>(mid + <span class="number">1</span>, r, rs[x], rs[y]);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">psu</span>(l, r, x), x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> L, <span class="type">int</span> R, <span class="type">int</span> k, <span class="type">int</span> &amp; p)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!p) p = <span class="built_in">nnd</span>(l, r);</span><br><span class="line">  <span class="keyword">if</span> (l &gt;= L &amp;&amp; r &lt;= R) <span class="keyword">return</span> <span class="built_in">work</span>(k, p);</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> (L &lt;= mid) <span class="built_in">add</span>(l, mid, L, R, k, ls[p]);</span><br><span class="line">  <span class="keyword">if</span> (R &gt; mid) <span class="built_in">add</span>(mid + <span class="number">1</span>, r, L, R, k, rs[p]);</span><br><span class="line">  <span class="built_in">psu</span>(l, r, p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">addex</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> ps, <span class="type">int</span> k, <span class="type">int</span> &amp; p)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!p) p = <span class="built_in">nnd</span>(l, r);</span><br><span class="line">  <span class="keyword">if</span> (l == r) <span class="keyword">return</span> ex[p] += k, <span class="built_in">void</span>();</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  ps &lt;= mid ? <span class="built_in">addex</span>(l, mid, ps, k, ls[p]) : <span class="built_in">addex</span>(mid + <span class="number">1</span>, r, ps, k, rs[p]);</span><br><span class="line">  <span class="built_in">psu</span>(l, r, p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getp</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!ex[p]) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">if</span> (l == r) <span class="keyword">return</span> l;</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> (ex[rs[p]] &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">getp</span>(mid + <span class="number">1</span>, r, rs[p]);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">getp</span>(l, mid, ls[p]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">ask</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> L, <span class="type">int</span> R, <span class="type">int</span> &amp; premx, <span class="type">int</span> k, <span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> (!ls[p]) ls[p] = <span class="built_in">nnd</span>(l, mid);</span><br><span class="line">  <span class="keyword">if</span> (!rs[p]) rs[p] = <span class="built_in">nnd</span>(mid + <span class="number">1</span>, r);</span><br><span class="line">  <span class="keyword">if</span> (l &gt;= L &amp;&amp; r &lt;= R) &#123;</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">      <span class="keyword">if</span> (mx[p] + k &gt;= premx) <span class="keyword">return</span> l;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    k += tag[p];</span><br><span class="line">    <span class="keyword">if</span> (mx[ls[p]] + k &gt;= premx)</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">ask</span>(l, mid, L, R, premx, k, ls[p]);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (mx[rs[p]] + k &gt;= (premx = <span class="built_in">max</span>(premx, mx[ls[p]] + k)))</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">ask</span>(mid + <span class="number">1</span>, r, L, R, premx, k, rs[p]);</span><br><span class="line">    <span class="keyword">else</span> premx = <span class="built_in">max</span>(premx, mx[rs[p]] + k);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  k += tag[p];</span><br><span class="line">  <span class="keyword">if</span> (L &lt;= mid) &#123;</span><br><span class="line">    <span class="type">int</span> t = <span class="built_in">ask</span>(l, mid, L, R, premx, k, ls[p]);</span><br><span class="line">    <span class="keyword">if</span> (t != <span class="number">-1</span>) <span class="keyword">return</span> t;</span><br><span class="line">  &#125;</span><br><span class="line">  premx = <span class="built_in">max</span>(premx, mx[ls[p]] + k);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">ask</span>(mid + <span class="number">1</span>, r, L, R, premx, k, rs[p]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs3</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">  mxd[x] = dep[x];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> y : G[x]) &#123;</span><br><span class="line">    <span class="keyword">if</span> (x == d[<span class="number">1</span>] + n &amp;&amp; y == d[idx] + n) <span class="keyword">continue</span>;</span><br><span class="line">    <span class="keyword">if</span> (x == d[<span class="number">1</span>] &amp;&amp; y == d[idx]) <span class="keyword">continue</span>;</span><br><span class="line">    <span class="built_in">dfs3</span>(y);</span><br><span class="line">    rt[x] = <span class="built_in">mrg</span>(<span class="number">0</span>, lim, rt[x], rt[y]), mxd[x] = <span class="built_in">max</span>(mxd[x], mxd[y]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> [t, v] : vc[x]) &#123;</span><br><span class="line">    <span class="built_in">add</span>(<span class="number">0</span>, lim, t, lim, v, rt[x]);</span><br><span class="line">    <span class="built_in">addex</span>(<span class="number">0</span>, lim, t, v, rt[x]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="type">int</span> tmp = -inf, pos = <span class="built_in">getp</span>(<span class="number">0</span>, lim, rt[x]);</span><br><span class="line">  <span class="keyword">if</span> (pos != <span class="number">-1</span>) &#123;</span><br><span class="line">    <span class="type">int</span> tim = <span class="built_in">ask</span>(<span class="number">0</span>, lim, pos, lim, tmp, <span class="number">0</span>, rt[x]);</span><br><span class="line">    ans = <span class="built_in">max</span>(ans, tim - dep[x] + <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">  cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">  cin &gt;&gt; n; <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) cin &gt;&gt; p[i];</span><br><span class="line">  cin &gt;&gt; m; <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) cin &gt;&gt; a[i] &gt;&gt; b[i], id[a[i]].<span class="built_in">pb</span>(i);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="keyword">if</span> (!vis[i]) <span class="built_in">add_e</span>(p[i], i), <span class="built_in">add_e</span>(p[i] + n, i + n);</span><br><span class="line">  lim = <span class="built_in">max</span>(n, m) * <span class="number">2</span> + <span class="number">5</span>;</span><br><span class="line">  <span class="type">int</span> fl = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> s = <span class="number">1</span>; s &lt;= n; ++s) &#123;</span><br><span class="line">    <span class="keyword">if</span> (v[s]) <span class="keyword">continue</span>;</span><br><span class="line">    idx = tot = cnt = num = <span class="number">0</span>, ++o, q.<span class="built_in">clear</span>();</span><br><span class="line">    <span class="built_in">dfs</span>(s);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= idx; ++i) &#123;</span><br><span class="line">      d[i + idx] = d[i] + n;</span><br><span class="line">      dy[d[i]] = i, vis[d[i]] = <span class="number">1</span>;</span><br><span class="line">      dy[d[i] + n] = i + idx, vis[d[i] + n] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">add_e</span>(d[idx + <span class="number">1</span>], d[idx]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">2</span> * idx; ++i)</span><br><span class="line">      dep[d[i]] = <span class="number">2</span> * idx - i, <span class="built_in">dfs2</span>(d[i], d[i]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> w : q) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">auto</span> i : id[w]) &#123;</span><br><span class="line">	<span class="keyword">if</span> (fr[b[i]] != o) &#123;fl = <span class="number">0</span>; <span class="keyword">break</span>;&#125;</span><br><span class="line">	vc[a[i]].<span class="built_in">pb</span>(<span class="built_in">mk</span>(dep[a[i]], <span class="number">1</span>)), vc[a[i] + n].<span class="built_in">pb</span>(<span class="built_in">mk</span>(dep[a[i] + n], <span class="number">1</span>));</span><br><span class="line">	<span class="keyword">if</span> (vis[b[i]]) &#123;</span><br><span class="line">	  <span class="type">int</span> l = dy[tp[a[i]]], r = dy[b[i]];</span><br><span class="line">	  <span class="keyword">if</span> (l &lt;= r)</span><br><span class="line">	    vc[b[i]].<span class="built_in">pb</span>(<span class="built_in">mk</span>(dep[a[i]], <span class="number">-1</span>)), vc[b[i] + n].<span class="built_in">pb</span>(<span class="built_in">mk</span>(dep[a[i] + n], <span class="number">-1</span>));</span><br><span class="line">	  <span class="keyword">else</span> vc[b[i] + n].<span class="built_in">pb</span>(<span class="built_in">mk</span>(dep[a[i]], <span class="number">-1</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">	  vc[b[i]].<span class="built_in">pb</span>(<span class="built_in">mk</span>(dep[a[i]], <span class="number">-1</span>)), vc[b[i] + n].<span class="built_in">pb</span>(<span class="built_in">mk</span>(dep[a[i] + n], <span class="number">-1</span>));</span><br><span class="line">	  <span class="keyword">if</span> (!(tp[a[i]] == tp[b[i]] &amp;&amp; dfn[a[i]] &gt;= dfn[b[i]] &amp;&amp; dfn[a[i]] &lt; dfn[b[i]] + sz[b[i]])) &#123;</span><br><span class="line">	    fl = <span class="number">0</span>; <span class="keyword">break</span>;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!fl) <span class="keyword">return</span> cout &lt;&lt; <span class="number">-1</span> &lt;&lt; endl, <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">dfs3</span>(d[<span class="number">2</span> * idx]);</span><br><span class="line">  &#125;</span><br><span class="line">  cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/08/01/solution/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -231,13 +256,13 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/08/01/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="image" content="https://github.com/2514631360a/img-repo/blob/main/mmexport1746952483694.jpg?raw=true">
+      <meta itemprop="name" content="Tagaki san">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Tagaki's blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -267,19 +292,15 @@
 
       
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/08/01/hello-world/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -352,7 +373,9 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+    <img class="site-author-image" itemprop="image" alt="Tagaki san"
+      src="https://github.com/2514631360a/img-repo/blob/main/mmexport1746952483694.jpg?raw=true">
+  <p class="site-author-name" itemprop="name">Tagaki san</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -392,10 +415,8 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">Tagaki san</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
-  </div>
 
         
 
@@ -411,6 +432,7 @@
   </div>
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
@@ -431,6 +453,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
